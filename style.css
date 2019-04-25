@@ -40,7 +40,6 @@ section {
    width: 100%;
    justify-content: center;
    top: 0;
-   z-index: -1;
 }
  @media screen and (min-width: 35rem) {
    figure {
