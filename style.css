@@ -1,52 +1,4 @@
-section {
-   position: relative;
-}
- body {
-   background-color: ghostwhite;
-   margin: 0 auto;
-}
- h1 {
-   text-align: left;
-   margin-bottom: 3rem;
-   font-size: 70px;
-}
- section {
-   margin: 0;
-   padding: 0;
-}
- article {
-   padding: 0 1rem;
-   margin: 0 auto;
-   max-width: 40rem;
-}
- article p {
-   font-family: Georgia;
-   font-size: 1.1rem;
-   line-height: 1.8;
-   min-height: 90vh;
-   margin: 0;
-   background-color: rgba(white, 0.75);
-}
- article p:not(:last-of-type) {
-   margin: 0 0 1rem;
-}
 
-
- figure {
-   align-items: center;
-   align-self: flex-start;
-   display: flex;
-   height: 100vh;
-   margin: 0;
-   width: 100%;
-   justify-content: center;
-   top: 0;
-}
- @media screen and (min-width: 35rem) {
-   figure {
-     position: sticky;
-  }
-}
  
 
    .bar { fill: steelblue; }
@@ -74,7 +26,7 @@ section {
    font-family: Georgia;
    font-size: 1.1rem;
    line-height: 1.8;
-   min-height: 90vh;
+   min-height: 0;
    margin: 0;
 
 }
@@ -103,6 +55,14 @@ figure#bringforward{
    figure {
      position: sticky;
   }
+
+   article p {
+   
+   min-height: 90vh;
+
+}
+
+
 }
  
  svg {
