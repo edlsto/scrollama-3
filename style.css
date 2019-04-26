@@ -6,8 +6,9 @@ section {
    margin: 0 auto;
 }
  h1 {
-   text-align: center;
+   text-align: left;
    margin-bottom: 3rem;
+   font-size: 70px;
 }
  section {
    margin: 0;
@@ -24,6 +25,7 @@ section {
    line-height: 1.8;
    min-height: 90vh;
    margin: 0;
+   background-color: rgba(white, 0.75);
 }
  article p:not(:last-of-type) {
    margin: 0 0 1rem;
@@ -46,3 +48,93 @@ section {
   }
 }
  
+
+   .bar { fill: steelblue; }
+
+  section {
+   position: relative;
+}
+ body {
+   background-color: ghostwhite;
+   margin: 0 auto;
+   font-family: 'Raleway', sans-serif;
+
+}
+
+ section {
+   margin: 0;
+   padding: 0;
+}
+ article {
+   padding: 0 1rem;
+   margin: 0 auto;
+   max-width: 40rem;
+}
+ article p {
+   font-family: Georgia;
+   font-size: 1.1rem;
+   line-height: 1.8;
+   min-height: 90vh;
+   margin: 0;
+
+}
+ article p:not(:last-of-type) {
+   margin: 0 0 1rem;
+}
+
+
+ figure {
+   align-items: center;
+   align-self: flex-start;
+   display: flex;
+   height: 100vh;
+   margin: 0;
+   width: 100%;
+   justify-content: center;
+   top: 0;
+     z-index: -1;
+
+}
+
+figure#bringforward{
+  z-index: 0;
+}
+ @media screen and (min-width: 35rem) {
+   figure {
+     position: sticky;
+  }
+}
+ 
+ svg {
+  width: 800px;
+  height: 400px;
+ }
+
+ svg#two {
+    width: 800px;
+  height: 400px;
+ }
+
+ .hero {
+    /* Sizing */
+    width: 100vw;
+    height: 100vh;
+       display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding-left: 60px;
+    padding-top: 60px;
+  font-size: 90px;
+    
+    /* Background styles */
+    background-image: url(./images/image1.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+#herotext{
+  width: 400px;
+  text-align: left;
+}
+

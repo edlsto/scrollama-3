@@ -1,0 +1,23 @@
+{
+  "name": "vail-snow-visualization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typed.js": "^2.0.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edlsto/scrollama-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edlsto/scrollama-3/issues"
+  },
+  "homepage": "https://github.com/edlsto/scrollama-3#readme"
+}
