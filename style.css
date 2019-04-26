@@ -1,5 +1,13 @@
 
- 
+  svg {
+  width: 300px;
+  height: 400px;
+ }
+
+ svg#two {
+    width: 400px;
+  height: 400px;
+ }
 
    .bar { fill: steelblue; }
 
@@ -26,7 +34,7 @@
    font-family: Georgia;
    font-size: 1.1rem;
    line-height: 1.8;
-   min-height: 0;
+   min-height: 1;
    margin: 0;
 
 }
@@ -62,9 +70,6 @@ figure#bringforward{
 
 }
 
-
-}
- 
  svg {
   width: 800px;
   height: 400px;
@@ -74,6 +79,11 @@ figure#bringforward{
     width: 800px;
   height: 400px;
  }
+
+
+}
+ 
+
 
  .hero {
     /* Sizing */
