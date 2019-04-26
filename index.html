@@ -3,6 +3,9 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
       <script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
+
+  .bar { fill: steelblue; }
+
   section {
    position: relative;
 }
@@ -45,6 +48,12 @@
    width: 100%;
    justify-content: center;
    top: 0;
+     z-index: -1;
+
+}
+
+figure#bringforward{
+  z-index: 0;
 }
  @media screen and (min-width: 35rem) {
    figure {
@@ -57,16 +66,21 @@
   height: 400px;
  }
 
+ svg#two {
+    width: 800px;
+  height: 400px;
+ }
+
 
 </style>
 </head>
 <body>
-<h1>Best. Season. Ever?</h1>
+<h1>Lorem ipsum dolor</h1>
 
 <section>
   
-  <figure>
-    <svg></svg>
+  <figure id="bringforward">
+    <svg id="one"></svg>
   </figure>
   
   <article class="top">
@@ -81,11 +95,11 @@
 
 <section>
   
-  <figure >
-    <p>A second sticky item</p>
+  <figure>
+    <svg id="two"></svg>
   </figure>
   
-  <article style="color: #efefef;">
+  <article>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum tellus felis, at lobortis orci sollicitudin ac. Donec lobortis sapien ac posuere faucibus. Mauris lectus neque, pretium non volutpat eget, vestibulum at magna. In sollicitudin augue nunc, non bibendum augue ornare quis.</p>
     
     <p>Integer accumsan interdum justo eu pretium. Aliquam maximus mi sit amet dapibus efficitur.</p>

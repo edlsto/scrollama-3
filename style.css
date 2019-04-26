@@ -24,7 +24,6 @@ section {
    line-height: 1.8;
    min-height: 90vh;
    margin: 0;
-       background-color: rgba(white, 0.75);
 }
  article p:not(:last-of-type) {
    margin: 0 0 1rem;

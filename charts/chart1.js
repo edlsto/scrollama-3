@@ -1,10 +1,15 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
-var svg = d3.select('svg')
+var svg1 = d3.select('svg#one')
+var svg2 = d3.select('svg#two')
 var height = 400
 var width = 800
-var margin = {left: 20, right: 30, top: 20, bottom: 20}
-const data = d3.tsv('https://gist.githubusercontent.com/edlsto/491bbd6d419f729df6b84ca94de04aff/raw/803b70154e55de29fd9fdb6903e22342f4962071/gistfile1.tsv', function(data) {
+var height1 = 400
+var width1 = 800
+var margin = {left: 30, right: 30, top: 20, bottom: 20}
+
+
+d3.tsv('https://gist.githubusercontent.com/edlsto/491bbd6d419f729df6b84ca94de04aff/raw/803b70154e55de29fd9fdb6903e22342f4962071/gistfile1.tsv', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -17,7 +22,7 @@ values: data.columns.slice(1).map(k => +d[k])
 series: series,
 dates: columns
 }
-  console.log(data)
+
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
     .range([margin.left, width - margin.right])
@@ -29,6 +34,7 @@ dates: columns
     .x((d, i) => x(data.dates[i]))
     .y(d => y(d))
           .curve(d3.curveCatmullRom);
+  
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
@@ -42,11 +48,13 @@ dates: columns
         .attr("text-anchor", "start")
         .attr("font-weight", "bold")
         .text(data.y))
-  svg.append("g")
+
+  svg1.append("g")
       .call(xAxis);
-  svg.append("g")
+  svg1.append("g")
       .call(yAxis);
-  var path = svg.append("g")
+
+  var path = svg1.append("g")
       .attr("fill", "none")
       .attr("stroke", "#ddd")
       .attr("stroke-width", 1.5)
@@ -63,7 +71,7 @@ dates: columns
       })
     
   d3.select('path#year0').attr("stroke", "steelblue")
-  const dot = svg.append("g")
+  const dot = svg1.append("g")
   dot.append("circle")
       .attr("r", 2.5);
   dot.append("text")
@@ -73,8 +81,9 @@ dates: columns
     dot.attr("transform", "translate(610.5012376237623,51.5)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
-  svg.call(hover, path);
-  return svg.node();
+  svg1.call(hover, path);
+  return svg1.node();
+
 function hover(svg, path) {
   svg
       .style("position", "relative");
@@ -120,3 +129,68 @@ function hover(svg, path) {
   }
 }
 })
+
+d3.tsv("https://gist.githubusercontent.com/edlsto/8970422bd7c7c135cdaad05470d7f03d/raw/91771879c78a8dc80bf58e7e07b92b494868f77f/gistfile1.tsv", function(error, data2) {
+  if (error) throw error;
+
+
+
+  // format the data
+  data2.forEach(function(d) {
+    d.inches = +d.inches;
+  });
+
+    var data2 =  {
+    y: "# inches",
+series: data2
+}
+console.log(data2)
+
+
+  var x = d3.scaleBand()
+    .domain(data2.series.map(d => d.name))
+    .range([margin.left, width - margin.right])
+    .padding(0.1)
+var y = d3.scaleLinear()
+    .domain([0, d3.max(data2.series, d => d.inches)]).nice()
+    .range([height - margin.bottom, margin.top])
+
+
+  // append the rectangles for the bar chart
+  svg2.append("g")
+      .attr("fill", "lightgray")
+    .selectAll("rect")
+    .data(data2.series)
+    .enter()
+    .append('rect')
+      .attr("x", d => x(d.name))
+      .attr("y", d => y(d.inches))
+      .attr("height", d => y(0) - y(d.inches))
+      .attr("width", x.bandwidth());
+
+  // add the x Axis
+xAxis = g => g
+    .attr("transform", `translate(0,${height1 - margin.bottom})`)
+    .call(d3.axisBottom(x).tickSizeOuter(0))
+
+
+yAxis = g => g
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y))
+    .call(g => g.select(".domain").remove())
+        .call(g => g.select(".tick:last-of-type text").clone()
+        .attr("x", 3)
+        .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+        .text(data2.y))
+
+  svg2.append("g")
+      .call(xAxis);
+  
+  svg2.append("g")
+      .call(yAxis);
+
+      console.log(d3.axisLeft(y))
+
+});
+
