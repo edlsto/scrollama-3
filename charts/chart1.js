@@ -166,7 +166,12 @@ var y = d3.scaleLinear()
       .attr("x", d => x(d.name))
       .attr("y", d => y(d.inches))
       .attr("height", d => y(0) - y(d.inches))
-      .attr("width", x.bandwidth());
+      .attr("width", x.bandwidth())
+      .attr("id", (d, i) => {
+      return "year" + i
+      })
+        d3.select('rect#year9').attr("fill", "steelblue")
+
 
   // add the x Axis
 xAxis = g => g
