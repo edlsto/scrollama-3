@@ -272,7 +272,7 @@ yAxis = g => g
 });
 
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef82798/raw/b3501fea7134a9db0afdd1d3bbbc40d45f07713e/snow-totals-resorts.tsv', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef82798/raw/25abcd5b2ea4fa5cf05644e87b5cb9b43754b59f/snow-totals-resorts.tsv', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -298,7 +298,7 @@ console.log(data)
     .defined(d => !isNaN(d))
     .x((d, i) => x(data.dates[i]))
     .y(d => y(d))
-          .curve(d3.step);
+          .curve(d3.curveCatmullRom);
   
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
@@ -335,7 +335,7 @@ console.log(data)
       return "years" + i
       })
     
-  d3.select('path#years0').attr("stroke", "steelblue")
+  d3.select('path#years2').attr("stroke", "steelblue")
   
   const dot = svg4.append("g")
   dot.append("circle")
@@ -344,9 +344,9 @@ console.log(data)
       .style("font", "10px sans-serif")
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(610.5012376237623,51.5)")
+    dot.attr("transform", "translate(566.9802333889021,153.2)")
     .attr("id", "thisyear")
-    dot.select("text").text("2018-19")
+    dot.select("text").text("Vail")
   svg4.call(hover, path);
   return svg4.node();
 
@@ -380,6 +380,7 @@ function hover(svg, path) {
     const s = data.series.reduce((a, b) => Math.abs(a.values[i] - ym) < Math.abs(b.values[i] - ym) ? a : b);
     path.attr("stroke", d => d === s ? 'steelblue' : "#ddd").filter(d => d === s).raise();
     dot.attr("transform", `translate(${x(data.dates[i])},${y(s.values[i])})`);
+    console.log(`${x(data.dates[i])},${y(s.values[i])}`);
     dot.select("text").text(s.name)
     d3.select('#thisyear').remove()
   }
@@ -389,9 +390,9 @@ function hover(svg, path) {
   }
   function left() {
     path.style("mix-blend-mode", "multiply").attr("stroke", null);
-    dot.attr("transform", "translate(610.5012376237623,51.5)")
-      d3.select('path#year0').attr("stroke", "steelblue")
-    dot.select("text").text("2018-19")
+    dot.attr("transform", "translate(566.9802333889021,153.2)")
+      d3.select('path#years2').attr("stroke", "steelblue")
+    dot.select("text").text("Vail")
   }
 }
 })
