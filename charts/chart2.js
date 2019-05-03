@@ -1,13 +1,13 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
 var margin = {left: 30, right: 30, top: 20, bottom: 20}
-var height = 400 - margin.top - margin.bottom
-var width = 800 - margin.left - margin.right
+var width = parseInt(d3.select("#one").style("width")) - margin.left - margin.right;
+   var height = parseInt(d3.select("#one").style("height")) - margin.top - margin.bottom;
 var svg1 = d3.select('#one')
   .append('svg')
   .attr('width', width + margin.left + margin.right)
   .attr('height', height + margin.top + margin.bottom)
-  .call(responsivefy)
+
 var svg2 = d3.select('#two')
   .append('svg')
 
@@ -15,33 +15,6 @@ var svg3 = d3.select('svg#three')
 var svg4 = d3.select('svg#four')
 
 
-function responsivefy(svg) {
-      // get container + svg aspect ratio
-      var container = d3.select(svg.node().parentNode),
-          width = parseInt(svg.style("width")),
-          height = parseInt(svg.style("height")),
-          aspect = width / height;
-      // add viewBox and preserveAspectRatio properties,
-      // and call resize so that svg resizes on inital page load
-      svg.attr("viewBox", "0 0 " + width + " " + height)
-          .attr("preserveAspectRatio", "xMinYMid")
-          .call(resize);
-
-      // to register multiple listeners for same event type,
-      // you need to add namespace, i.e., 'click.foo'
-      // necessary if you call invoke this function for multiple svgs
-      // api docs: https://github.com/mbostock/d3/wiki/Selections#on
-      d3.select(window).on("resize." + container.attr("id"), resize);
-
-      // get width of container and resize svg to fit it
-      function resize() {
-          var targetWidth = parseInt(container.style("width"));
-          svg.attr("width", targetWidth);
-          svg.attr("height", Math.round(targetWidth / aspect));
-      }
-                console.log(container.style("width"))
-
-    }
 
 
 d3.tsv('https://gist.githubusercontent.com/edlsto/491bbd6d419f729df6b84ca94de04aff/raw/803b70154e55de29fd9fdb6903e22342f4962071/gistfile1.tsv', function(data) {
@@ -58,14 +31,6 @@ series: series,
 dates: columns
 }
 
-var aspect = width / height,
-    chart = d3.select('#one');
-d3.select(window)
-  .on("resize", function() {
-    var targetWidth = chart.node().getBoundingClientRect().width;
-    chart.attr("width", targetWidth);
-    chart.attr("height", targetWidth / aspect);
-  });
 
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
@@ -172,6 +137,40 @@ function hover(svg, path) {
     dot.select("text").text("2018-19")
   }
 }
+
+   // Define responsive behavior
+    function resize() {
+      var width = parseInt(d3.select("#one").style("width")) - margin.left - margin.right,
+      height = parseInt(d3.select("#one").style("height")) - margin.top - margin.bottom;
+
+      // Update the range of the scale with new width/height
+      xScale.range([0, width]);
+      yScale.range([height, 0]);
+
+      // Update the axis and text with the new scale
+      svg.select('.x.axis')
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+      svg.select('.y.axis')
+        .call(yAxis);
+
+      // Force D3 to recalculate and update the line
+      svg.selectAll('.line')
+        .attr("d", function(d) { return line(d.datapoints); });
+
+      // Update the tick marks
+      xAxis.ticks(Math.max(width/75, 2));
+      yAxis.ticks(Math.max(height/50, 2));
+
+    };
+
+    // Call the resize function whenever a resize event occurs
+    d3.select(window).on('resize', resize);
+
+    // Call the resize function
+    resize();
+
 })
 
 d3.tsv("https://gist.githubusercontent.com/edlsto/8970422bd7c7c135cdaad05470d7f03d/raw/91771879c78a8dc80bf58e7e07b92b494868f77f/gistfile1.tsv", function(error, data2) {
