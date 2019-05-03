@@ -59,7 +59,7 @@ figure.bringforward{
 .hero {
   /* Sizing */
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
   justify-content: left;
   align-items: flex-start;
