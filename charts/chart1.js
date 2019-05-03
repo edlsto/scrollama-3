@@ -1,7 +1,9 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
-var svg1 = d3.select('svg#one')
-var svg2 = d3.select('svg#two')
+var svg1 = d3.select('#one')
+  .append('svg')
+var svg2 = d3.select('#two')
+  .append('svg')
 var svg3 = d3.select('svg#three')
 var svg4 = d3.select('svg#four')
 var height = 400
@@ -24,6 +26,15 @@ values: data.columns.slice(1).map(k => +d[k])
 series: series,
 dates: columns
 }
+
+var aspect = width / height,
+    chart = d3.select('#one');
+d3.select(window)
+  .on("resize", function() {
+    var targetWidth = chart.node().getBoundingClientRect().width;
+    chart.attr("width", targetWidth);
+    chart.attr("height", targetWidth / aspect);
+  });
 
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
@@ -176,7 +187,7 @@ var y = d3.scaleLinear()
 
   // add the x Axis
 xAxis = g => g
-    .attr("transform", `translate(0,${height1 - margin.bottom})`)
+    .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickSizeOuter(0))
 
 yAxis = g => g
@@ -249,7 +260,7 @@ var y = d3.scaleLinear()
 
   // add the x Axis
 xAxis = g => g
-    .attr("transform", `translate(0,${height1 - margin.bottom})`)
+    .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickSizeOuter(0))
 
 yAxis = g => g
@@ -272,7 +283,7 @@ yAxis = g => g
 });
 
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef82798/raw/25abcd5b2ea4fa5cf05644e87b5cb9b43754b59f/snow-totals-resorts.tsv', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef82798/raw/7677c77793f4fba175789340befa2b88d360a317/snow-totals-resorts.tsv', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -344,7 +355,7 @@ console.log(data)
       .style("font", "10px sans-serif")
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(566.9802333889021,153.2)")
+    dot.attr("transform", "translate(562.7506549178377,203.6)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
   svg4.call(hover, path);
@@ -390,7 +401,7 @@ function hover(svg, path) {
   }
   function left() {
     path.style("mix-blend-mode", "multiply").attr("stroke", null);
-    dot.attr("transform", "translate(566.9802333889021,153.2)")
+    dot.attr("transform", "translate(562.7506549178377,203.6)")
       d3.select('path#years2').attr("stroke", "steelblue")
     dot.select("text").text("Vail")
   }

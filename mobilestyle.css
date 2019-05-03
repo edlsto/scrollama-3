@@ -50,14 +50,13 @@ figure {
   justify-content: center;
   top: 0;
   z-index: -1;
-  position: sticky;
 }
 
 figure.bringforward{
   z-index: 0;
 }
 
- .hero {
+.hero {
   /* Sizing */
   width: 100vw;
   height: 100vh;
@@ -74,7 +73,7 @@ figure.bringforward{
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  }
+}
 
 #herotext{
   width: 400px;
