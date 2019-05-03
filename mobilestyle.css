@@ -43,7 +43,6 @@ figure {
   align-items: center;
   align-self: flex-start;
   display: flex;
-  height: 100vh;
   margin: 0;
   width: 100%;
   justify-content: center;
@@ -57,7 +56,7 @@ figure.bringforward{
 
 .hero {
   /* Sizing */
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: left;
