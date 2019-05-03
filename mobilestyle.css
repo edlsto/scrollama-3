@@ -26,13 +26,12 @@ section {
 article {
    padding: 0 1rem;
    margin: 0 auto;
-   max-width: 40rem;
 }
 
 article p {
   font-family: Georgia;
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.8rem;
+  line-height: 2.2;
   min-height: 1;
   margin: 0;
 }
