@@ -58,8 +58,7 @@ figure.bringforward{
 
 .hero {
   /* Sizing */
-  width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   justify-content: left;
   align-items: flex-start;
@@ -72,7 +71,7 @@ figure.bringforward{
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
 }
 
 @media (max-width: 768px) {
