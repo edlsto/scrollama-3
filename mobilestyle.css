@@ -4,6 +4,8 @@ div#one {
   margin: auto;
 }
 
+
+
 .bar { fill: steelblue; }
 
 section {
@@ -71,6 +73,13 @@ figure.bringforward{
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    background-image: url(./images/mobile.jpg);
+  }
 }
 
 #herotext{
