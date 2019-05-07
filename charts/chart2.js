@@ -41,7 +41,8 @@ dates: columns
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 100).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
-;
+            .attr("font-size", 20)
+
     yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
@@ -49,14 +50,15 @@ dates: columns
     .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", 3)
         .attr("text-anchor", "start")
+        .attr("font-size", 30)
         .attr("font-weight", "bold")
         .text(data.y))
 
   svg1.append("g")
-  .style("font", "16px times")
+  .style("font", "28px times")
       .call(xAxis);
   svg1.append("g")
-  .style("font", "16px times")
+  .style("font", "28px times")
       .call(yAxis);
 
   var path = svg1.append("g")
