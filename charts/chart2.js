@@ -17,10 +17,10 @@ values: data.columns.slice(1).map(k => +d[k])
 series: series,
 dates: columns
 }
-var margin = {left: 30, right: 30, top: 20, bottom: 20}
+var margin = {left: 50, right: 30, top: 20, bottom: 20}
 
     var width = 800 - margin.left - margin.right;
-    var height = 400 - margin.top - margin.bottom;
+    var height = 800 - margin.top - margin.bottom;
 
 var svg1 = d3.select('#one')
   .append('svg')
@@ -34,6 +34,7 @@ var svg1 = d3.select('#one')
   var y = d3.scaleLinear()
     .domain([0, d3.max(data.series, d => d3.max(d.values))]).nice()
     .range([height - margin.bottom, margin.top])
+
   var line = d3.line()
     .defined(d => !isNaN(d))
     .x((d, i) => x(data.dates[i]))
@@ -51,8 +52,10 @@ var svg1 = d3.select('#one')
 
 
   svg1.append("g")
+      .style("font-size", "30px")
       .call(xAxis);
   svg1.append("g")
+      .style("font-size", "30px")
       .call(yAxis);
 
   var path = svg1.append("g")
