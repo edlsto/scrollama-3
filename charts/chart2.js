@@ -20,7 +20,7 @@ dates: columns
 var margin = {left: 50, right: 30, top: 20, bottom: 20}
 
     var width = 800 - margin.left - margin.right;
-    var height = 800 - margin.top - margin.bottom;
+    var height = 850 - margin.top - margin.bottom;
 
 var svg1 = d3.select('#one')
   .append('svg')
