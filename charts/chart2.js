@@ -52,10 +52,10 @@ var svg1 = d3.select('#one')
 
 
   svg1.append("g")
-      .style("font-size", "30px")
+      .style("font-size", "15px")
       .call(xAxis);
   svg1.append("g")
-      .style("font-size", "30px")
+      .style("font-size", "15px")
       .call(yAxis);
 
   var path = svg1.append("g")
