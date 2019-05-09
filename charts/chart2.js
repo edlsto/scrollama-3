@@ -1,12 +1,5 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
-var margin = {left: 30, right: 30, top: 20, bottom: 20}
-var width = parseInt(d3.select("#one").style("width")) - margin.left - margin.right;
-   var height = parseInt(d3.select("#one").style("height")) - margin.top - margin.bottom;
-var svg1 = d3.select('#one')
-  .append('svg')
-  .attr('width', width + margin.left + margin.right)
-  .attr('height', height + margin.top + margin.bottom)
 
 
 
@@ -24,7 +17,16 @@ values: data.columns.slice(1).map(k => +d[k])
 series: series,
 dates: columns
 }
+var margin = {left: 30, right: 30, top: 20, bottom: 20}
 
+    var width = 800 - margin.left - margin.right;
+    var height = 400 - margin.top - margin.bottom;
+
+var svg1 = d3.select('#one')
+  .append('svg')
+  .attr("width", width + margin.left + margin.right )
+  .attr("height", height + margin.top + margin.bottom)
+  .call(responsivefy);
 
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
@@ -40,25 +42,17 @@ dates: columns
   
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
-    .call(d3.axisBottom(x).ticks(width / 100).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
-            .attr("font-size", 20)
-
+    .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+;
     yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
     .call(g => g.select(".domain").remove())
-    .call(g => g.select(".tick:last-of-type text").clone()
-        .attr("x", 3)
-        .attr("text-anchor", "start")
-        .attr("font-size", 30)
-        .attr("font-weight", "bold")
-        .text(data.y))
+
 
   svg1.append("g")
-  .style("font", "28px times")
       .call(xAxis);
   svg1.append("g")
-  .style("font", "28px times")
       .call(yAxis);
 
   var path = svg1.append("g")
@@ -76,29 +70,15 @@ dates: columns
       .attr("id", (d, i) => {
       return "year" + i
       })
-    
-  d3.select('path#year0').attr("stroke", "steelblue")
-  const dot = svg1.append("g")
-  dot.append("circle")
-      .attr("r", 2.5);
-  dot.append("text")
-      .style("font", "10px sans-serif")
-      .attr("text-anchor", "middle")
-      .attr("y", -8);
-    dot.attr("transform", "translate(610.5012376237623,51.5)")
-    .attr("id", "thisyear")
-    dot.select("text").text("2018-19")
-  svg1.call(path);
-  return svg1.node();
 
 
-
-   function responsivefy(svg) {
+function responsivefy(svg) {
     // get container + svg aspect ratio
     var container = d3.select(svg.node().parentNode),
         width = parseInt(svg.style("width")),
         height = parseInt(svg.style("height")),
         aspect = width / height;
+        console.log(svg.style("width"))
 
     // add viewBox and preserveAspectRatio properties,
     // and call resize so that svg resizes on inital page load
@@ -114,9 +94,10 @@ dates: columns
 
     // get width of container and resize svg to fit it
     function resize() {
-        var targetWidth = parseInt(container.style("width"));
+        var targetWidth = parseInt(container.style("width")) < 800 ? parseInt(container.style("width")) : 800;
         svg.attr("width", targetWidth);
         svg.attr("height", Math.round(targetWidth / aspect));
+        console.log(targetWidth)
     }
 }
 
