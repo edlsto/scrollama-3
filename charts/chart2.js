@@ -19,7 +19,7 @@ dates: columns
 }
 var margin = {left: 50, right: 30, top: 20, bottom: 20}
 
-    var width = 800 - margin.left - margin.right;
+    var width = 1000 - margin.left - margin.right;
     var height = 850 - margin.top - margin.bottom;
 
 var svg1 = d3.select('#one')
@@ -97,7 +97,7 @@ function responsivefy(svg) {
 
     // get width of container and resize svg to fit it
     function resize() {
-        var targetWidth = parseInt(container.style("width")) < 800 ? parseInt(container.style("width")) : 800;
+        var targetWidth = parseInt(container.style("width")) < 1000 ? parseInt(container.style("width")) : 1000;
         svg.attr("width", targetWidth);
         svg.attr("height", Math.round(targetWidth / aspect));
         console.log(targetWidth)
