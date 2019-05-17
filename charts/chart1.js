@@ -3,8 +3,6 @@ var dateFormatter = d3.timeFormat("%b. %d");
 
 
 
-var svg3 = d3.select('svg#three')
-var svg4 = d3.select('svg#four')
 
 var margin = {left: 50, right: 30, top: 20, bottom: 20}
 
@@ -79,8 +77,14 @@ var svg1 = d3.select('#one')
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+        .style("font-size", fontSize)
+
 ;
+    var container = d3.select(svg1.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
     yAxis = g => g
+    .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
     .call(g => g.select(".domain").remove())
@@ -88,6 +92,7 @@ var svg1 = d3.select('#one')
         .attr("x", 3)
         .attr("text-anchor", "start")
         .attr("font-weight", "bold")
+
         .text(data.y))
 
   svg1.append("g")
@@ -119,10 +124,9 @@ var svg1 = d3.select('#one')
       .style("font", "10px sans-serif")
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(610.5012376237623,51.5)")
+    dot.attr("transform", "translate(570.5012376237623,48)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
-  svg1.call(path);
   return svg1.node();
 
 
@@ -359,7 +363,6 @@ dates: columns
     dot.attr("transform", "translate(562.7506549178377,203.6)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
-  svg4.call(path);
   return svg4.node();
 
 
