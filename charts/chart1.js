@@ -1,16 +1,45 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
-var svg1 = d3.select('#one')
-  .append('svg')
-var svg2 = d3.select('#two')
-  .append('svg')
+
+
+
 var svg3 = d3.select('svg#three')
 var svg4 = d3.select('svg#four')
-var height = 400
-var width = 800
-var height1 = 400
-var width1 = 800
-var margin = {left: 30, right: 30, top: 20, bottom: 20}
+
+var margin = {left: 50, right: 30, top: 20, bottom: 20}
+
+
+    var width = 800 - margin.left - margin.right;
+    var height = 400 - margin.top - margin.bottom;
+
+function responsivefy(svg) {
+    // get container + svg aspect ratio
+    var container = d3.select(svg.node().parentNode),
+        width = parseInt(svg.style("width")),
+        height = parseInt(svg.style("height")),
+        aspect = width / height;
+    // add viewBox and preserveAspectRatio properties,
+    // and call resize so that svg resizes on inital page load
+    svg.attr("viewBox", "0 0 " + width + " " + height)
+        .attr("perserveAspectRatio", "xMinYMid")
+        .call(resize);
+
+    // to register multiple listeners for same event type, 
+    // you need to add namespace, i.e., 'click.foo'
+    // necessary if you call invoke this function for multiple svgs
+    // api docs: https://github.com/mbostock/d3/wiki/Selections#on
+    d3.select(window).on("resize." + container.attr("id"), resize);
+
+    // get width of container and resize svg to fit it
+    function resize() {
+        var targetWidth = parseInt(container.style("width")) < 800 ? parseInt(container.style("width")) : 800;
+        svg.attr("width", targetWidth);
+        console.log(container.style("width"))
+
+        svg.attr("height", Math.round(targetWidth / aspect));
+    }
+}
+
 
 
 d3.tsv('https://gist.githubusercontent.com/edlsto/491bbd6d419f729df6b84ca94de04aff/raw/803b70154e55de29fd9fdb6903e22342f4962071/gistfile1.tsv', function(data) {
@@ -27,14 +56,13 @@ series: series,
 dates: columns
 }
 
-var aspect = width / height,
-    chart = d3.select('#one');
-d3.select(window)
-  .on("resize", function() {
-    var targetWidth = chart.node().getBoundingClientRect().width;
-    chart.attr("width", targetWidth);
-    chart.attr("height", targetWidth / aspect);
-  });
+
+
+var svg1 = d3.select('#one')
+  .append('svg')
+  .attr("width", width + margin.left + margin.right )
+  .attr("height", height + margin.top + margin.bottom)
+  .call(responsivefy);
 
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
@@ -94,53 +122,10 @@ d3.select(window)
     dot.attr("transform", "translate(610.5012376237623,51.5)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
-  svg1.call(hover, path);
+  svg1.call(path);
   return svg1.node();
 
-function hover(svg, path) {
-  svg
-      .style("position", "relative");
-  if ("ontouchstart" in document) svg
-      .style("-webkit-tap-highlight-color", "transparent")
-      .on("touchmove", moved)
-      .on("touchstart", entered)
-      .on("touchend", left)
-  else svg
-      .on("mousemove", moved)
-      .on("mouseenter", entered)
-      .on("mouseleave", left);
-  const dot = svg.append("g")
-      .attr("display", "none");
-  dot.append("circle")
-      .attr("r", 2.5);
-  dot.append("text")
-      .style("font", "10px sans-serif")
-      .attr("text-anchor", "middle")
-      .attr("y", -8);
-  function moved() {
-    d3.event.preventDefault();
-    const ym = y.invert(d3.event.layerY);
-    const xm = x.invert(d3.event.layerX);
-    const i1 = d3.bisectLeft(data.dates, xm, 1);
-    const i0 = i1 - 1;
-    const i = xm - data.dates[i0] > data.dates[i1] - xm ? i1 : i0;
-    const s = data.series.reduce((a, b) => Math.abs(a.values[i] - ym) < Math.abs(b.values[i] - ym) ? a : b);
-    path.attr("stroke", d => d === s ? 'steelblue' : "#ddd").filter(d => d === s).raise();
-    dot.attr("transform", `translate(${x(data.dates[i])},${y(s.values[i])})`);
-    dot.select("text").text(s.name)
-    d3.select('#thisyear').remove()
-  }
-  function entered() {
-    path.style("mix-blend-mode", null).attr("stroke", "#ddd");
-    dot.attr("display", 'null');
-  }
-  function left() {
-    path.style("mix-blend-mode", "multiply").attr("stroke", null);
-    dot.attr("transform", "translate(610.5012376237623,51.5)")
-      d3.select('path#year0').attr("stroke", "steelblue")
-    dot.select("text").text("2018-19")
-  }
-}
+
 })
 
 d3.tsv("https://gist.githubusercontent.com/edlsto/8970422bd7c7c135cdaad05470d7f03d/raw/91771879c78a8dc80bf58e7e07b92b494868f77f/gistfile1.tsv", function(error, data2) {
@@ -159,6 +144,8 @@ series: data2
 }
 
 
+
+
   var x = d3.scaleBand()
     .domain(data2.series.map(d => d.name))
     .range([margin.left, width - margin.right])
@@ -169,6 +156,12 @@ var y = d3.scaleLinear()
 
 
   // append the rectangles for the bar chart
+  var svg2 = d3.select('#two')
+  .append('svg')
+  .attr("width", width + margin.left + margin.right )
+  .attr("height", height + margin.top + margin.bottom)
+  .call(responsivefy);
+  
   svg2.append("g")
       .attr("fill", "lightgray")
     .selectAll("rect")
@@ -184,6 +177,7 @@ var y = d3.scaleLinear()
       })
         d3.select('rect#year9').attr("fill", "steelblue")
 
+console.log(svg2.attr("width"))
 
   // add the x Axis
 xAxis = g => g
@@ -225,24 +219,26 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/05fef0d61318a5b91f8d475216fba0
     d => d.date
   )
 
-console.log(dates)
-
     var data3 =  {
     y: "# inches",
 series: data3,
 dates: dates
 }
 
-console.log(data3)
-
   var x = d3.scaleTime()
     .domain(d3.extent(data3.dates))
     .range([margin.left, width - margin.right])
 
-console.log(d3.max(data3.series, d => d.inches))
 var y = d3.scaleLinear()
     .domain([0, 15])
     .range([height - margin.bottom, margin.top])
+
+      var svg3 = d3.select('#three')
+  .append('svg')
+  .attr("width", width + margin.left + margin.right )
+  .attr("height", height + margin.top + margin.bottom)
+  .call(responsivefy);
+  
 
   // append the rectangles for the bar chart
   svg3.append("g")
@@ -297,7 +293,12 @@ series: series,
 dates: columns
 }
 
-console.log(data)
+      var svg4 = d3.select('#four')
+  .append('svg')
+  .attr("width", width + margin.left + margin.right )
+  .attr("height", height + margin.top + margin.bottom)
+  .call(responsivefy);
+
 
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
@@ -358,53 +359,15 @@ console.log(data)
     dot.attr("transform", "translate(562.7506549178377,203.6)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
-  svg4.call(hover, path);
+  svg4.call(path);
   return svg4.node();
 
-function hover(svg, path) {
-  svg
-      .style("position", "relative");
-  if ("ontouchstart" in document) svg
-      .style("-webkit-tap-highlight-color", "transparent")
-      .on("touchmove", moved)
-      .on("touchstart", entered)
-      .on("touchend", left)
-  else svg
-      .on("mousemove", moved)
-      .on("mouseenter", entered)
-      .on("mouseleave", left);
-  const dot = svg.append("g")
-      .attr("display", "none");
-  dot.append("circle")
-      .attr("r", 2.5);
-  dot.append("text")
-      .style("font", "10px sans-serif")
-      .attr("text-anchor", "middle")
-      .attr("y", -8);
-  function moved() {
-    d3.event.preventDefault();
-    const ym = y.invert(d3.event.layerY);
-    const xm = x.invert(d3.event.layerX);
-    const i1 = d3.bisectLeft(data.dates, xm, 1);
-    const i0 = i1 - 1;
-    const i = xm - data.dates[i0] > data.dates[i1] - xm ? i1 : i0;
-    const s = data.series.reduce((a, b) => Math.abs(a.values[i] - ym) < Math.abs(b.values[i] - ym) ? a : b);
-    path.attr("stroke", d => d === s ? 'steelblue' : "#ddd").filter(d => d === s).raise();
-    dot.attr("transform", `translate(${x(data.dates[i])},${y(s.values[i])})`);
-    console.log(`${x(data.dates[i])},${y(s.values[i])}`);
-    dot.select("text").text(s.name)
-    d3.select('#thisyear').remove()
-  }
-  function entered() {
-    path.style("mix-blend-mode", null).attr("stroke", "#ddd");
-    dot.attr("display", 'null');
-  }
-  function left() {
-    path.style("mix-blend-mode", "multiply").attr("stroke", null);
-    dot.attr("transform", "translate(562.7506549178377,203.6)")
-      d3.select('path#years2').attr("stroke", "steelblue")
-    dot.select("text").text("Vail")
-  }
-}
+
+
+
+
+
+
+
 })
 
