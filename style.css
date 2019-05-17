@@ -90,6 +90,22 @@ figure.bringforward{
 
     }
 
+    article p {
+  font-family: Georgia;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  min-height: 1;
+  margin: 0;
+  min-height: 10vh;
+}
+
+    figure {
+
+  position: relative;
+    height: 50vh;
+
+}
+
   }
 
 #herotext{
