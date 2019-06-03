@@ -573,7 +573,7 @@ var svg5 = d3.select('#five')
       .attr("y", -8);
     dot.attr("transform", "translate(330,321)")
     .attr("id", "thisyear")
-    dot.select("text").text("2018-19")
+    dot.select("text").text("2019")
 
   const dot2 = svg5.append("g")
   dot2.append("circle")
@@ -585,7 +585,31 @@ var svg5 = d3.select('#five')
       .attr("y", -8);
     dot2.attr("transform", "translate(600,114)")
     .attr("id", "thisyear")
-    dot2.select("text").text("2010-11")
+    dot2.select("text").text("2011")
+
+      const dot3 = svg5.append("g")
+  dot3.append("circle")
+      .attr("r", 2.5);
+  dot3.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot3.attr("transform", "translate(459,44)")
+    .attr("id", "thisyear")
+    dot3.select("text").text("2010")
+
+          const dot4 = svg5.append("g")
+  dot4.append("circle")
+      .attr("r", 2.5);
+  dot4.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot4.attr("transform", "translate(499,408)")
+    .attr("id", "thisyear")
+    dot4.select("text").text("2012")
 
   return svg5.node();
 
