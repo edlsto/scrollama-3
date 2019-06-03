@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "typed.js": "^2.0.10"
+    
   },
   "devDependencies": {},
   "scripts": {
