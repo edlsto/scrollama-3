@@ -83,12 +83,16 @@ figure.bringforward{
   background-attachment: fixed;
   }
 
+
+
   @media (max-width: 768px) {
       .hero {
           background: url(./images/mobile.jpg)  no-repeat center top;
 
 
       }
+
+
 
     article p {
       font-family: Georgia;
@@ -106,8 +110,17 @@ figure.bringforward{
 
   }
 
+    @media (max-width: 400px) {
+      .hero {
+          background: url(./images/small.jpg)  no-repeat center top;
+
+
+      }
+    }
+
 #herotext{
   width: 400px;
   text-align: left;
 }
+
 
