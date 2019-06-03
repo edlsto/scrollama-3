@@ -8,7 +8,7 @@ var margin = {left: 50, right: 30, top: 20, bottom: 20}
 
 
     var width = 800 - margin.left - margin.right;
-    var height = 400 - margin.top - margin.bottom;
+    var height = 500 - margin.top - margin.bottom;
 
 function responsivefy(svg) {
     // get container + svg aspect ratio
@@ -34,9 +34,10 @@ function responsivefy(svg) {
     function resize() {
         var targetWidth = parseInt(container.style("width")) < 800 ? parseInt(container.style("width")) : 800;
         svg.attr("width", targetWidth);
-        console.log(container.style("width"))
 
         svg.attr("height", Math.round(targetWidth / aspect));
+                console.log(container.style("height"))
+
     }
 }
 
@@ -126,7 +127,7 @@ var svg1 = d3.select('#one')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(467,80)")
+    dot.attr("transform", "translate(467,100)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
   return svg1.node();
@@ -383,7 +384,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(562.7506549178377,175)")
+    dot.attr("transform", "translate(562.7506549178377,225)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
 
@@ -395,7 +396,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot2.attr("transform", "translate(562.7506549178377,109)")
+    dot2.attr("transform", "translate(562.7506549178377,137)")
     .attr("id", "thisyear")
     dot2.select("text").text("Aspen")
 
@@ -407,7 +408,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot3.attr("transform", "translate(562.7506549178377,55)")
+    dot3.attr("transform", "translate(562.7506549178377,63)")
     .attr("id", "thisyear")
     dot3.select("text").text("Mammoth")
 
@@ -419,7 +420,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot4.attr("transform", "translate(562.7506549178377,137)")
+    dot4.attr("transform", "translate(500,195)")
     .attr("id", "thisyear")
     dot4.select("text").text("Park City")
 
@@ -431,7 +432,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot5.attr("transform", "translate(625.7506549178377,132)")
+    dot5.attr("transform", "translate(625.7506549178377,169)")
     .attr("id", "thisyear")
     dot5.select("text").text("Breckenridge")
 
@@ -532,7 +533,7 @@ var svg5 = d3.select('#five')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(330,250)")
+    dot.attr("transform", "translate(330,321)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
 
@@ -544,7 +545,7 @@ var svg5 = d3.select('#five')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot2.attr("transform", "translate(600,90)")
+    dot2.attr("transform", "translate(600,114)")
     .attr("id", "thisyear")
     dot2.select("text").text("2010-11")
 
