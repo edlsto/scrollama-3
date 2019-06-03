@@ -271,6 +271,8 @@ var y = d3.scaleLinear()
 xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickSizeOuter(0))
+            .style("font-size", fontSize)
+
 
      var container = d3.select(svg3.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
@@ -333,6 +335,7 @@ dates: columns
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+        .style("font-size", fontSize)
 
      var container = d3.select(svg4.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
@@ -476,6 +479,7 @@ var svg5 = d3.select('#five')
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 160).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+        .style("font-size", fontSize)
 
 
 ;
