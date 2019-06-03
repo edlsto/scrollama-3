@@ -189,8 +189,15 @@ console.log(svg2.attr("width"))
 xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickSizeOuter(0))
+            .style("font-size", fontSize)
 
-yAxis = g => g
+
+     var container = d3.select(svg2.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
+
+    yAxis = g => g
+    .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
     .call(g => g.select(".domain").remove())
@@ -265,7 +272,12 @@ xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickSizeOuter(0))
 
-yAxis = g => g
+     var container = d3.select(svg3.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
+;
+    yAxis = g => g
+    .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
     .call(g => g.select(".domain").remove())
@@ -321,8 +333,13 @@ dates: columns
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+
+     var container = d3.select(svg4.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
 ;
     yAxis = g => g
+    .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
     .call(g => g.select(".domain").remove())
@@ -431,7 +448,7 @@ values: data.columns.slice(1).map(k => +d[k])
 }
   })
   var data =  {
-    y: "# inches",
+    y: "# cubic feet per second",
 series: series,
 dates: columns
 }
