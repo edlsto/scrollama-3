@@ -365,6 +365,51 @@ dates: columns
     dot.attr("transform", "translate(562.7506549178377,175)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
+
+      const dot2 = svg4.append("g")
+  dot2.append("circle")
+      .attr("r", 2.5);
+  dot2.append("text")
+      .style("font", "10px sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot2.attr("transform", "translate(562.7506549178377,109)")
+    .attr("id", "thisyear")
+    dot2.select("text").text("Aspen")
+
+          const dot3 = svg4.append("g")
+  dot3.append("circle")
+      .attr("r", 2.5);
+  dot3.append("text")
+      .style("font", "10px sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot3.attr("transform", "translate(562.7506549178377,55)")
+    .attr("id", "thisyear")
+    dot3.select("text").text("Mammoth")
+
+              const dot4 = svg4.append("g")
+  dot4.append("circle")
+      .attr("r", 2.5);
+  dot4.append("text")
+      .style("font", "10px sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot4.attr("transform", "translate(562.7506549178377,137)")
+    .attr("id", "thisyear")
+    dot4.select("text").text("Park City")
+
+              const dot5 = svg4.append("g")
+  dot5.append("circle")
+      .attr("r", 2.5);
+  dot5.append("text")
+      .style("font", "10px sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot5.attr("transform", "translate(625.7506549178377,132)")
+    .attr("id", "thisyear")
+    dot5.select("text").text("Breckenridge")
+
   return svg4.node();
 
 
