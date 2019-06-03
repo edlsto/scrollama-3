@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edlsto/scrollama-3.git"
+    "url": "git+https://github.com/edlsto/vail-snow-visualization.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/edlsto/scrollama-3/issues"
+    "url": "https://github.com/edlsto/vail-snow-visualization/issues"
   },
-  "homepage": "https://github.com/edlsto/scrollama-3#readme"
+  "homepage": "https://github.com/edlsto/vail-snow-visualization#readme"
 }
