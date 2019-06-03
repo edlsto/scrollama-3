@@ -379,7 +379,8 @@ dates: columns
   dot.append("circle")
       .attr("r", 2.5);
   dot.append("text")
-      .style("font", "10px sans-serif")
+       .style("font", "sans-serif")
+      .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
     dot.attr("transform", "translate(562.7506549178377,175)")
@@ -390,7 +391,8 @@ dates: columns
   dot2.append("circle")
       .attr("r", 2.5);
   dot2.append("text")
-      .style("font", "10px sans-serif")
+      .style("font", "sans-serif")
+      .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
     dot2.attr("transform", "translate(562.7506549178377,109)")
@@ -401,7 +403,8 @@ dates: columns
   dot3.append("circle")
       .attr("r", 2.5);
   dot3.append("text")
-      .style("font", "10px sans-serif")
+      .style("font", "sans-serif")
+      .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
     dot3.attr("transform", "translate(562.7506549178377,55)")
@@ -412,7 +415,8 @@ dates: columns
   dot4.append("circle")
       .attr("r", 2.5);
   dot4.append("text")
-      .style("font", "10px sans-serif")
+      .style("font", "sans-serif")
+      .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
     dot4.attr("transform", "translate(562.7506549178377,137)")
@@ -423,7 +427,8 @@ dates: columns
   dot5.append("circle")
       .attr("r", 2.5);
   dot5.append("text")
-      .style("font", "10px sans-serif")
+      .style("font", "sans-serif")
+      .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
     dot5.attr("transform", "translate(625.7506549178377,132)")
