@@ -130,6 +130,44 @@ var svg1 = d3.select('#one')
     dot.attr("transform", "translate(467,100)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
+
+
+  const dot2 = svg1.append("g")
+  dot2.append("circle")
+      .attr("r", 2.5);
+  dot2.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot2.attr("transform", "translate(657,106)")
+    .attr("id", "thisyear")
+    dot2.select("text").text("2010-11")
+
+      const dot3 = svg1.append("g")
+  dot3.append("circle")
+      .attr("r", 2.5);
+  dot3.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot3.attr("transform", "translate(533,406)")
+    .attr("id", "thisyear")
+    dot3.select("text").text("2011-12")
+
+          const dot4 = svg1.append("g")
+  dot4.append("circle")
+      .attr("r", 2.5);
+  dot4.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot4.attr("transform", "translate(640,170)")
+    .attr("id", "thisyear")
+    dot4.select("text").text("2009-10")
+
   return svg1.node();
 
 
