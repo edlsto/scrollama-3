@@ -16,6 +16,8 @@ function responsivefy(svg) {
         width = parseInt(svg.style("width")),
         height = parseInt(svg.style("height")),
         aspect = width / height;
+            var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
     // add viewBox and preserveAspectRatio properties,
     // and call resize so that svg resizes on inital page load
     svg.attr("viewBox", "0 0 " + width + " " + height)
@@ -40,7 +42,7 @@ function responsivefy(svg) {
 
 
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/491bbd6d419f729df6b84ca94de04aff/raw/803b70154e55de29fd9fdb6903e22342f4962071/gistfile1.tsv', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a93/raw/725e99a55d80cdb74e1cff6d91d5a018cc4453ec/water-data-060319', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -92,7 +94,6 @@ var svg1 = d3.select('#one')
         .attr("x", 3)
         .attr("text-anchor", "start")
         .attr("font-weight", "bold")
-
         .text(data.y))
 
   svg1.append("g")
@@ -122,9 +123,10 @@ var svg1 = d3.select('#one')
       .attr("r", 2.5);
   dot.append("text")
       .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(570.5012376237623,48)")
+    dot.attr("transform", "translate(467,80)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
   return svg1.node();
@@ -360,7 +362,7 @@ dates: columns
       .style("font", "10px sans-serif")
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(562.7506549178377,203.6)")
+    dot.attr("transform", "translate(562.7506549178377,175)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
   return svg4.node();
@@ -374,3 +376,108 @@ dates: columns
 
 })
 
+
+d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d22/raw/df14e7ecd96690f16cde14e4ebfc3a4a5893a613/snow-totals-060319', function(data) {
+  var columns = data.columns.slice(1).map(d => parseTime(d))
+  var series = data.map( (d, i, columns) => {
+    return {
+name: d.name,
+values: data.columns.slice(1).map(k => +d[k])
+}
+  })
+  var data =  {
+    y: "# inches",
+series: series,
+dates: columns
+}
+
+
+
+var svg5 = d3.select('#five')
+  .append('svg')
+  .attr("width", width + margin.left + margin.right )
+  .attr("height", height + margin.top + margin.bottom)
+  .call(responsivefy);
+
+  var x = d3.scaleTime()
+    .domain(d3.extent(data.dates))
+    .range([margin.left, width - margin.right])
+  var y = d3.scaleLinear()
+    .domain([0, d3.max(data.series, d => d3.max(d.values))]).nice()
+    .range([height - margin.bottom, margin.top])
+  var line = d3.line()
+    .defined(d => !isNaN(d))
+    .x((d, i) => x(data.dates[i]))
+    .y(d => y(d))
+          .curve(d3.curveCatmullRom);
+  
+  xAxis = g => g
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).ticks(width / 160).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+
+
+;
+    var container = d3.select(svg5.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
+    yAxis = g => g
+    .style("font-size", fontSize)
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y))
+    .call(g => g.select(".domain").remove())
+    .call(g => g.select(".tick:last-of-type text").clone()
+        .attr("x", 3)
+        .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+        .text(data.y))
+
+  svg5.append("g")
+      .call(xAxis);
+  svg5.append("g")
+      .call(yAxis);
+
+  var path = svg5.append("g")
+      .attr("fill", "none")
+      .attr("stroke", "#ddd")
+      .attr("stroke-width", 1.5)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .selectAll("path")
+    .data(data.series)
+   .enter()
+   .append("path")
+      .style("mix-blend-mode", "multiply")
+      .attr("d", d => line(d.values))
+      .attr("id", (d, i) => {
+      return "wateryear" + i
+      })
+    
+  d3.select('path#wateryear9').attr("stroke", "steelblue")
+  const dot = svg5.append("g")
+  dot.append("circle")
+      .attr("r", 2.5);
+  dot.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot.attr("transform", "translate(330,250)")
+    .attr("id", "thisyear")
+    dot.select("text").text("2018-19")
+
+  const dot2 = svg5.append("g")
+  dot2.append("circle")
+      .attr("r", 2.5);
+  dot2.append("text")
+      .style("font", "10px sans-serif")
+      .style("font-size", fontSize)
+      .attr("text-anchor", "middle")
+      .attr("y", -8);
+    dot2.attr("transform", "translate(600,90)")
+    .attr("id", "thisyear")
+    dot2.select("text").text("2010-11")
+
+  return svg5.node();
+
+
+})
