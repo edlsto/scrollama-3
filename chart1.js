@@ -66,6 +66,9 @@ var svg1 = d3.select('#one')
   .attr("height", height + margin.top + margin.bottom)
   .call(responsivefy);
 
+
+;
+
   var x = d3.scaleTime()
     .domain(d3.extent(data.dates))
     .range([margin.left, width - margin.right])
@@ -78,14 +81,26 @@ var svg1 = d3.select('#one')
     .y(d => y(d))
           .curve(d3.curveCatmullRom);
   
+
+var container = d3.select(svg1.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
         .style("font-size", fontSize)
 
+          svg1.append("text")
+      .attr("x", 80 )
+    .attr("y", 440)
+    .text("Source: Natural Resources Conservation Service")
+          .style("font", "sans-serif")
+                  .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+    .style("font-size", fontSize)
+
 ;
-    var container = d3.select(svg1.node().parentNode);
-    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+    
 
     yAxis = g => g
     .style("font-size", fontSize)
@@ -223,7 +238,6 @@ var y = d3.scaleLinear()
       })
         d3.select('rect#year9').attr("fill", "steelblue")
 
-console.log(svg2.attr("width"))
 
   // add the x Axis
 xAxis = g => g
@@ -235,6 +249,16 @@ xAxis = g => g
      var container = d3.select(svg2.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
 
+          svg2.append("text")
+      .attr("x", 80 )
+    .attr("y", 440)
+    .text("Source: onthesnow.com")
+          .style("font", "sans-serif")
+                  .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+    .style("font-size", fontSize)
+
+;
 
     yAxis = g => g
     .style("font-size", fontSize)
@@ -318,6 +342,19 @@ xAxis = g => g
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
 
 ;
+
+
+          svg3.append("text")
+      .attr("x", 80 )
+    .attr("y", 440)
+    .text("Source: onthesnow.com")
+          .style("font", "sans-serif")
+                  .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+    .style("font-size", fontSize)
+
+;
+
     yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
@@ -380,7 +417,19 @@ dates: columns
      var container = d3.select(svg4.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
 
+
+          svg4.append("text")
+      .attr("x", 80 )
+    .attr("y", 440)
+    .text("Source: onthesnow.com")
+          .style("font", "sans-serif")
+                  .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+    .style("font-size", fontSize)
+
 ;
+
+
     yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
@@ -530,6 +579,18 @@ var svg5 = d3.select('#five')
 ;
     var container = d3.select(svg5.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
+
+          svg5.append("text")
+      .attr("x", 80 )
+    .attr("y", 440)
+    .text("Source: Natural Resources Conservation Service")
+          .style("font", "sans-serif")
+                  .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+    .style("font-size", fontSize)
+
+;
 
     yAxis = g => g
     .style("font-size", fontSize)
