@@ -338,7 +338,7 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/05fef0d61318a5b91f8d475216fba0
 });
 
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef82798/raw/7677c77793f4fba175789340befa2b88d360a317/snow-totals-resorts.tsv', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef82798/raw/e2e6ea9afdbb9a9d6ffbf0eab6ed7e18f0cbf0a5/snow-totals-resorts.tsv', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
