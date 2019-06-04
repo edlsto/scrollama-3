@@ -90,7 +90,7 @@ var svg1 = d3.select('#one')
     yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y).ticks(width / 180))
     .call(g => g.select(".domain").remove())
     .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", 3)
@@ -128,7 +128,7 @@ var svg1 = d3.select('#one')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(467,100)")
+    dot.attr("transform", "translate(497,130)")
     .attr("id", "thisyear")
     dot.select("text").text("2018-19")
 
@@ -141,7 +141,7 @@ var svg1 = d3.select('#one')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot2.attr("transform", "translate(657,106)")
+    dot2.attr("transform", "translate(632,89)")
     .attr("id", "thisyear")
     dot2.select("text").text("2010-11")
 
@@ -153,7 +153,7 @@ var svg1 = d3.select('#one')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot3.attr("transform", "translate(533,406)")
+    dot3.attr("transform", "translate(543,306)")
     .attr("id", "thisyear")
     dot3.select("text").text("2011-12")
 
@@ -165,7 +165,7 @@ var svg1 = d3.select('#one')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot4.attr("transform", "translate(640,170)")
+    dot4.attr("transform", "translate(632,165)")
     .attr("id", "thisyear")
     dot4.select("text").text("2009-10")
 
@@ -239,7 +239,7 @@ xAxis = g => g
     yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y).ticks(width / 180))
     .call(g => g.select(".domain").remove())
         .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", 3)
@@ -384,7 +384,7 @@ dates: columns
     yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y).ticks(width / 180))
     .call(g => g.select(".domain").remove())
     .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", 3)
@@ -423,7 +423,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(562.7506549178377,225)")
+    dot.attr("transform", "translate(562.7506549178377,228)")
     .attr("id", "thisyear")
     dot.select("text").text("Vail")
 
@@ -435,7 +435,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot2.attr("transform", "translate(562.7506549178377,137)")
+    dot2.attr("transform", "translate(562.7506549178377,167)")
     .attr("id", "thisyear")
     dot2.select("text").text("Aspen")
 
@@ -447,7 +447,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot3.attr("transform", "translate(562.7506549178377,63)")
+    dot3.attr("transform", "translate(562.7506549178377,116)")
     .attr("id", "thisyear")
     dot3.select("text").text("Mammoth")
 
@@ -459,7 +459,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot4.attr("transform", "translate(500,195)")
+    dot4.attr("transform", "translate(570,194)")
     .attr("id", "thisyear")
     dot4.select("text").text("Park City")
 
@@ -471,7 +471,7 @@ dates: columns
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot5.attr("transform", "translate(625.7506549178377,169)")
+    dot5.attr("transform", "translate(625.7506549178377,193)")
     .attr("id", "thisyear")
     dot5.select("text").text("Breckenridge")
 
@@ -534,7 +534,7 @@ var svg5 = d3.select('#five')
     yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y).ticks(width / 80))
     .call(g => g.select(".domain").remove())
     .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", 3)
@@ -572,7 +572,7 @@ var svg5 = d3.select('#five')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot.attr("transform", "translate(330,321)")
+    dot.attr("transform", "translate(360,298)")
     .attr("id", "thisyear")
     dot.select("text").text("2019")
 
@@ -584,7 +584,7 @@ var svg5 = d3.select('#five')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot2.attr("transform", "translate(600,114)")
+    dot2.attr("transform", "translate(600,144)")
     .attr("id", "thisyear")
     dot2.select("text").text("2011")
 
@@ -596,7 +596,7 @@ var svg5 = d3.select('#five')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot3.attr("transform", "translate(459,44)")
+    dot3.attr("transform", "translate(488,87)")
     .attr("id", "thisyear")
     dot3.select("text").text("2010")
 
@@ -608,7 +608,7 @@ var svg5 = d3.select('#five')
       .style("font-size", fontSize)
       .attr("text-anchor", "middle")
       .attr("y", -8);
-    dot4.attr("transform", "translate(499,408)")
+    dot4.attr("transform", "translate(517,362)")
     .attr("id", "thisyear")
     dot4.select("text").text("2012")
 
