@@ -48,7 +48,7 @@ article p {
 
 
 padding: 0.2em;
-background-color: rgba(248,255,255,0.8);
+background-color: rgba(248,255,255,1);
 
 }
 
@@ -57,7 +57,7 @@ article p:not(:last-of-type) {
 }
 
 article p:last-of-type {
-  padding-bottom: 30vh;
+  padding-bottom: 90vh;
 }
 
 figure {
