@@ -4,7 +4,7 @@ var dateFormatter = d3.timeFormat("%b. %d");
 
 
 
-var margin = {left: 50, right: 30, top: 20, bottom: 20}
+var margin = {left: 80, right: 30, top: 20, bottom: 20}
 
 
     var width = 800 - margin.left - margin.right;
