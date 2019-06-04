@@ -45,6 +45,14 @@ article p {
   min-height: 90vh;
 }
 
+ p span {
+
+
+padding: 0.2em;
+background-color: rgba(248,255,255,0.7);
+
+}
+
 article p:not(:last-of-type) {
   margin: 0 0 1rem;
 }
