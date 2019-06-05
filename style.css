@@ -40,7 +40,7 @@ article p {
   font-family: Georgia;
   font-size: 1.1rem;
   line-height: 1.8;
-  min-height: 1;
+  min-height: 90vh;
   margin: 0;
 }
 
@@ -56,10 +56,6 @@ background-color: rgba(248,255,255,1);
 
 article p:not(:last-of-type) {
   margin: 0 0 1rem;
-}
-
-article p:last-of-type {
-  padding-bottom: 90vh;
 }
 
 figure {
@@ -124,9 +120,7 @@ background-attachment: fixed;
   padding-bottom: 0;
 }
 
-span#desktop {
-  display: none;
-}
+
 
   article p {
     font-family: Georgia;
