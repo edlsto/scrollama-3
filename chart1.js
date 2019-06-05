@@ -1,6 +1,6 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
-var margin = {left: 80, right: 0, top: 110, bottom: 0}
+var margin = {left: 80, right: 0, top: 130, bottom: 0}
 var width = 800 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
 
@@ -33,7 +33,7 @@ function responsivefy(svg) {
     }
 }
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a93/raw/725e99a55d80cdb74e1cff6d91d5a018cc4453ec/water-data-060319', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a93/raw/72925e6ed94f4baffa42b861839a63775244cb47/water-data-060319', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -83,6 +83,15 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .attr("font-weight", "bold")
     .style("font-size", fontSize)    
 
+      svg1.append("text")
+    .attr("x", 60 )
+    .attr("y", 140)
+    .text("Snowpack, Vail Mountain")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", fontSize + 30)  
+
   yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
@@ -124,7 +133,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot.attr("transform", "translate(497,163)")
+  dot.attr("transform", "translate(482,173)")
     .attr("id", "thisyear")
   dot.select("text").text("2018-19")
 
@@ -137,7 +146,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot2.attr("transform", "translate(632,126)")
+  dot2.attr("transform", "translate(598,146)")
     .attr("id", "thisyear")
   dot2.select("text").text("2010-11")
 
@@ -149,7 +158,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot3.attr("transform", "translate(543,316)")
+  dot3.attr("transform", "translate(513,306)")
     .attr("id", "thisyear")
   dot3.select("text").text("2011-12")
 
@@ -161,7 +170,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot4.attr("transform", "translate(632,190)")
+  dot4.attr("transform", "translate(600,200)")
     .attr("id", "thisyear")
   dot4.select("text").text("2009-10")
  
@@ -233,6 +242,15 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/8970422bd7c7c135cdaad05470d7f0
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
     .style("font-size", fontSize);
+
+          svg2.append("text")
+    .attr("x", 53 )
+    .attr("y", 115)
+    .text("Yearly snowfall, Vail Mountain")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", fontSize + 30) 
 
   yAxis = g => g
     .style("font-size", fontSize)
@@ -307,7 +325,14 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/05fef0d61318a5b91f8d475216fba0
   var container = d3.select(svg3.node().parentNode);
   var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
 
-
+          svg3.append("text")
+    .attr("x", 53 )
+    .attr("y", 115)
+    .text("Daily snowfall, Vail Mountain")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", fontSize + 30) 
 
 
   svg3.append("text")
@@ -387,6 +412,15 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .attr("font-weight", "bold")
     .style("font-size", fontSize)
 
+              svg4.append("text")
+    .attr("x", 53 )
+    .attr("y", 115)
+    .text("Cumulative snowfall")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", fontSize + 30) 
+
   yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
@@ -441,7 +475,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot2.attr("transform", "translate(562.7506549178377,194)")
+  dot2.attr("transform", "translate(562.7506549178377,204)")
     .attr("id", "thisyear")
   dot2.select("text").text("Aspen")
 
@@ -453,7 +487,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-    dot3.attr("transform", "translate(562.7506549178377,148)")
+    dot3.attr("transform", "translate(562.7506549178377,163)")
       .attr("id", "thisyear")
     dot3.select("text").text("Mammoth")
 
@@ -465,7 +499,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot4.attr("transform", "translate(570,217)")
+  dot4.attr("transform", "translate(570,222)")
     .attr("id", "thisyear")
   dot4.select("text").text("Park City")
 
@@ -477,14 +511,14 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot5.attr("transform", "translate(625.7506549178377,217)")
+  dot5.attr("transform", "translate(625.7506549178377,223)")
     .attr("id", "thisyear")
   dot5.select("text").text("Breckenridge")
 
   return svg4.node();
 })
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d22/raw/cb3414bff9b6ef1ce6d0717ca04df9c4a907e2ee/snow-totals-060319', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d22/raw/e1009430535c1fc6bd4ebdfdde81d9a9912f0875/snow-totals-060319', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -533,6 +567,15 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .attr("font-weight", "bold")
     .style("font-size", fontSize)
 
+                 svg5.append("text")
+    .attr("x", 53 )
+    .attr("y", 115)
+    .text("River flow, Eagle River below Gypsum")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", fontSize + 30) 
+
   yAxis = g => g
     .style("font-size", fontSize)
     .attr("transform", `translate(${margin.left},0)`)
@@ -575,7 +618,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot.attr("transform", "translate(360,308)")
+  dot.attr("transform", "translate(360,302)")
     .attr("id", "thisyear")
   dot.select("text").text("2019")
 
@@ -587,7 +630,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot2.attr("transform", "translate(600,174)")
+  dot2.attr("transform", "translate(600,183)")
     .attr("id", "thisyear")
   dot2.select("text").text("2011")
 
@@ -599,7 +642,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot3.attr("transform", "translate(488,125)")
+  dot3.attr("transform", "translate(488,145)")
     .attr("id", "thisyear")
   dot3.select("text").text("2010")
 
@@ -611,7 +654,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot4.attr("transform", "translate(517,366)")
+  dot4.attr("transform", "translate(517,349)")
     .attr("id", "thisyear")
   dot4.select("text").text("2012")
 
