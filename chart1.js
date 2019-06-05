@@ -1,6 +1,6 @@
 var parseTime = d3.timeParse('%m/%d/%Y')
 var dateFormatter = d3.timeFormat("%b. %d");
-var margin = {left: 80, right: 0, top: 70, bottom: 20}
+var margin = {left: 80, right: 0, top: 110, bottom: 0}
 var width = 800 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
 
@@ -124,7 +124,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot.attr("transform", "translate(497,130)")
+  dot.attr("transform", "translate(497,163)")
     .attr("id", "thisyear")
   dot.select("text").text("2018-19")
 
@@ -137,7 +137,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot2.attr("transform", "translate(632,89)")
+  dot2.attr("transform", "translate(632,126)")
     .attr("id", "thisyear")
   dot2.select("text").text("2010-11")
 
@@ -149,7 +149,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot3.attr("transform", "translate(543,306)")
+  dot3.attr("transform", "translate(543,316)")
     .attr("id", "thisyear")
   dot3.select("text").text("2011-12")
 
@@ -161,7 +161,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot4.attr("transform", "translate(632,165)")
+  dot4.attr("transform", "translate(632,190)")
     .attr("id", "thisyear")
   dot4.select("text").text("2009-10")
  
@@ -429,7 +429,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot.attr("transform", "translate(562.7506549178377,228)")
+  dot.attr("transform", "translate(562.7506549178377,248)")
     .attr("id", "thisyear")
   dot.select("text").text("Vail")
 
@@ -441,7 +441,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot2.attr("transform", "translate(562.7506549178377,167)")
+  dot2.attr("transform", "translate(562.7506549178377,194)")
     .attr("id", "thisyear")
   dot2.select("text").text("Aspen")
 
@@ -453,7 +453,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-    dot3.attr("transform", "translate(562.7506549178377,116)")
+    dot3.attr("transform", "translate(562.7506549178377,148)")
       .attr("id", "thisyear")
     dot3.select("text").text("Mammoth")
 
@@ -465,7 +465,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot4.attr("transform", "translate(570,194)")
+  dot4.attr("transform", "translate(570,217)")
     .attr("id", "thisyear")
   dot4.select("text").text("Park City")
 
@@ -477,7 +477,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot5.attr("transform", "translate(625.7506549178377,193)")
+  dot5.attr("transform", "translate(625.7506549178377,217)")
     .attr("id", "thisyear")
   dot5.select("text").text("Breckenridge")
 
@@ -575,7 +575,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot.attr("transform", "translate(360,298)")
+  dot.attr("transform", "translate(360,308)")
     .attr("id", "thisyear")
   dot.select("text").text("2019")
 
@@ -587,7 +587,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot2.attr("transform", "translate(600,144)")
+  dot2.attr("transform", "translate(600,174)")
     .attr("id", "thisyear")
   dot2.select("text").text("2011")
 
@@ -599,7 +599,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot3.attr("transform", "translate(488,87)")
+  dot3.attr("transform", "translate(488,125)")
     .attr("id", "thisyear")
   dot3.select("text").text("2010")
 
@@ -611,9 +611,98 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
     .attr("text-anchor", "middle")
     .attr("y", -8);
-  dot4.attr("transform", "translate(517,362)")
+  dot4.attr("transform", "translate(517,366)")
     .attr("id", "thisyear")
   dot4.select("text").text("2012")
 
   return svg5.node();
 })
+
+
+d3.tsv('https://gist.githubusercontent.com/edlsto/b84d891b98ecd27c1cb0ef236e5b0955/raw/12ae08a1eac4e90b6cf1fba443a008b6e92fc0f2/tempdata.tsv', function(data) {
+  var columns = data.columns.slice(1).map(d => parseTime(d))
+  var series = data.map( (d, i, columns) => {
+    return {
+    name: d.name,
+    values: data.columns.slice(1).map(k => +d[k])
+    }
+  })
+  var data =  {
+    y: "Daily high, degrees Fahrenheit",
+    series: series,
+    dates: columns
+  }
+
+  var svg6 = d3.select('#six')
+    .append('svg')
+    .attr("width", width + margin.left + margin.right )
+    .attr("height", height + margin.top + margin.bottom)
+    .call(responsivefy);
+
+  var x = d3.scaleTime()
+    .domain(d3.extent(data.dates))
+    .range([margin.left, width - margin.right])
+  var y = d3.scaleLinear()
+    .domain([0, d3.max(data.series, d => d3.max(d.values))]).nice()
+    .range([height - margin.bottom, margin.top])
+  var line = d3.line()
+    .defined(d => !isNaN(d))
+    .x((d, i) => x(data.dates[i]))
+    .y(d => y(d))
+          .curve(d3.curveCatmullRom);
+  
+  xAxis = g => g
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).ticks(width / 160).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")))
+    .style("font-size", fontSize)
+
+    var container = d3.select(svg6.node().parentNode);
+    var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+
+  svg6.append("text")
+    .attr("x", 80 )
+    .attr("y", 440)
+    .text("Source: Colorado Climate Center")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", fontSize)
+
+  yAxis = g => g
+    .style("font-size", fontSize)
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y).ticks(width / 80))
+    .call(g => g.select(".domain").remove())
+    .call(g => g.select(".tick:last-of-type text").clone()
+    .attr("x", 3)
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .text(data.y))
+
+  svg6.append("g")
+    .call(xAxis);
+  svg6.append("g")
+    .call(yAxis);
+
+  var path = svg6.append("g")
+    .attr("fill", "none")
+    .attr("stroke", "#ddd")
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("stroke-linecap", "round")
+    .selectAll("path")
+    .data(data.series)
+    .enter()
+    .append("path")
+    .style("mix-blend-mode", "multiply")
+    .attr("d", d => line(d.values))
+    .attr("id", (d, i) => {
+    return "wateryear" + i
+  })
+    
+  d3.select('path#wateryear9').attr("stroke", "steelblue")
+
+
+  return svg6.node();
+})
+
