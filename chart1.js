@@ -662,7 +662,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
 })
 
 
-d3.tsv('https://gist.githubusercontent.com/edlsto/b84d891b98ecd27c1cb0ef236e5b0955/raw/12ae08a1eac4e90b6cf1fba443a008b6e92fc0f2/tempdata.tsv', function(data) {
+d3.tsv('https://gist.githubusercontent.com/edlsto/b84d891b98ecd27c1cb0ef236e5b0955/raw/dc65418247adad5b33e6910131889859b027884e/tempdata.tsv', function(data) {
   var columns = data.columns.slice(1).map(d => parseTime(d))
   var series = data.map( (d, i, columns) => {
     return {
@@ -740,10 +740,10 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/b84d891b98ecd27c1cb0ef236e5b09
     .style("mix-blend-mode", "multiply")
     .attr("d", d => line(d.values))
     .attr("id", (d, i) => {
-    return "wateryear" + i
+    return "temp" + i
   })
     
-  d3.select('path#wateryear9').attr("stroke", "steelblue")
+  d3.select('path#temp9').attr("stroke", "steelblue")
 
 
   return svg6.node();
