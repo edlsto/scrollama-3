@@ -5,20 +5,36 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
         <meta name="viewport" content="user-scalable=no,width=device-width"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+          
+           $(function() {
+    $('.scroll-down').click (function() {
+      $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
+      return false;
+    });
+  });
+        </script>
   </head>
   <body>
     <section class="hero">
       <div id="herotext">
         An epic season?
       </div>
+<a href="#" class="scroll-down" address="true"></a>
 
     </section>
-
+<section class="ok">
      <div class="byline">
         <p>By Edward Stoner &#9679; estoner@vaildaily.com</p>
         <p style="font-size: 10px">Photo by Chris Dillmann &#9679; cdillmann@vaildaily.com</p>
 
       </div>
+        <article class="nomargin">
+            <p><span>VAIL &#8212; Large amounts of snowpack still linger in the high country, setting up a late and strong water peak for local rivers. Thanks to a cool and wet spring, river flows are still relatively modest for this time of year.</span></p>
+          </article>
+                </section>
 
     <section>
       <figure>
@@ -26,7 +42,7 @@
       </figure>
 
       <article>
-        <p><span>VAIL &#8212; Large amounts of snowpack still linger in the high country, setting up a late and strong water peak for local rivers. Thanks to a cool and wet spring, river flows are still relatively modest for this time of year.</span></p>
+
         <p><span>Despite the snowy winter and wet spring, as of Monday, the Eagle River below Gypsum was running at 1,570 cubic feet per second. That's the third-lowest amount for June 3 in the last 10 years.</span></p>
       </article>
     </section>
@@ -69,7 +85,8 @@
         <p><span>Aspen, Park City and Breckenridge also trended higher than Vail as the season progressed.</span></p>
       </article>
     </section>
-    <script src='chart1.js'></script>                 
+    <script src='chart1.js'></script>   
+              
   </body>
 </html>
 
