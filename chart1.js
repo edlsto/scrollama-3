@@ -68,6 +68,8 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
 
   var container = d3.select(svg1.node().parentNode);
   var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+        var bigFontSize = parseInt(container.style("width")) < 768 ? "30px" : "20px";
+
 
   xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
@@ -85,12 +87,12 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/d5ca86134c84dbdb959c58d6b1404a
 
       svg1.append("text")
     .attr("x", 60 )
-    .attr("y", 140)
+    .attr("y", 130)
     .text("Snowpack, Vail Mountain")
     .style("font", "sans-serif")
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
-    .style("font-size", fontSize + 30)  
+    .style("font-size", bigFontSize)  
 
   yAxis = g => g
     .style("font-size", fontSize)
@@ -233,6 +235,7 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/8970422bd7c7c135cdaad05470d7f0
 
   var container = d3.select(svg2.node().parentNode);
   var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+        var bigFontSize = parseInt(container.style("width")) < 768 ? "30px" : "20px";
 
   svg2.append("text")
     .attr("x", 80 )
@@ -245,12 +248,12 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/8970422bd7c7c135cdaad05470d7f0
 
           svg2.append("text")
     .attr("x", 53 )
-    .attr("y", 115)
+    .attr("y", 110)
     .text("Yearly snowfall, Vail Mountain")
     .style("font", "sans-serif")
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
-    .style("font-size", fontSize + 30) 
+    .style("font-size", bigFontSize) 
 
   yAxis = g => g
     .style("font-size", fontSize)
@@ -324,6 +327,7 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/05fef0d61318a5b91f8d475216fba0
 
   var container = d3.select(svg3.node().parentNode);
   var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+        var bigFontSize = parseInt(container.style("width")) < 768 ? "30px" : "20px";
 
           svg3.append("text")
     .attr("x", 53 )
@@ -332,7 +336,7 @@ d3.tsv("https://gist.githubusercontent.com/edlsto/05fef0d61318a5b91f8d475216fba0
     .style("font", "sans-serif")
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
-    .style("font-size", fontSize + 30) 
+    .style("font-size", bigFontSize) 
 
 
   svg3.append("text")
@@ -402,6 +406,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
 
   var container = d3.select(svg4.node().parentNode);
   var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+        var bigFontSize = parseInt(container.style("width")) < 768 ? "30px" : "20px";
 
   svg4.append("text")
     .attr("x", 80 )
@@ -419,7 +424,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/9c6c9c57326b82c8a61c339d3ef827
     .style("font", "sans-serif")
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
-    .style("font-size", fontSize + 30) 
+    .style("font-size", bigFontSize) 
 
   yAxis = g => g
     .style("font-size", fontSize)
@@ -557,6 +562,8 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
 
     var container = d3.select(svg5.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+        var bigFontSize = parseInt(container.style("width")) < 768 ? "30px" : "20px";
+
 
   svg5.append("text")
     .attr("x", 80 )
@@ -569,12 +576,12 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
 
                  svg5.append("text")
     .attr("x", 53 )
-    .attr("y", 115)
+    .attr("y", 120)
     .text("River flow, Eagle River below Gypsum")
     .style("font", "sans-serif")
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
-    .style("font-size", fontSize + 30) 
+    .style("font-size", bigFontSize) 
 
   yAxis = g => g
     .style("font-size", fontSize)
@@ -701,6 +708,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/b84d891b98ecd27c1cb0ef236e5b09
 
     var container = d3.select(svg6.node().parentNode);
     var fontSize = parseInt(container.style("width")) < 768 ? "20px" : "10px";
+        var bigFontSize = parseInt(container.style("width")) < 768 ? "30px" : "20px";
 
   svg6.append("text")
     .attr("x", 80 )
@@ -710,6 +718,15 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/b84d891b98ecd27c1cb0ef236e5b09
     .attr("text-anchor", "start")
     .attr("font-weight", "bold")
     .style("font-size", fontSize)
+
+                  svg6.append("text")
+    .attr("x", 53 )
+    .attr("y", 110)
+    .text("Daily high temperatures")
+    .style("font", "sans-serif")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .style("font-size", bigFontSize ) 
 
   yAxis = g => g
     .style("font-size", fontSize)
