@@ -575,7 +575,7 @@ d3.tsv('https://gist.githubusercontent.com/edlsto/7d1c2a2a165c965e2272b4ad56870d
     .style("font-size", fontSize)
 
                  svg5.append("text")
-    .attr("x", 53 )
+    .attr("x", 43 )
     .attr("y", 120)
     .text("River flow, Eagle River below Gypsum")
     .style("font", "sans-serif")
